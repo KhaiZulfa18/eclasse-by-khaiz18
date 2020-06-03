@@ -13,3 +13,44 @@
 	height: 150px;
 	object-fit: cover;
 }
+
+.floating-button{
+	display: block;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	color: white;
+	font-size: 60px;
+	font-weight: bold;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	text-decoration: none;
+	transition: ease all 0.3s;
+	position: fixed;
+	right: 60px;
+	bottom: 70px;
+}
+
+@media screen and (max-width: 992px) {
+  .floating-button{
+  	right: 40px;
+  	bottom: 60px;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  .floating-button{
+  	right: 30px;
+  	bottom: 60px;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 400px) {
+  .floating-button{
+  	right: 20px;
+  	bottom: 30px;
+  }
+}

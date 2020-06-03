@@ -41,7 +41,9 @@
                       <div class="form-group col-12 col-md-4">
                         <select class="form-control" id="status" name="status">
                           <option value="1">All</option>
+                          <?php if ($this->session->userdata('level')>1) { ?>
                           <option value="2">Just Admin</option>
+                          <?php } ?>
                         </select>
                       </div>
                       <div class="form-group col-12 col-md-4">

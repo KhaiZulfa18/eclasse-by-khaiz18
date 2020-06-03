@@ -41,11 +41,17 @@ class Home extends CI_Controller {
 	}
 
 	public function add_member(){
-		$data['headertitle'] = "Add Member";
-		$data['main_menu'] = "member";
-		$data['menu'] = "add_member";
+		if ($this->session->userdata('level')>1) {
+			$data['headertitle'] = "Add Member";
+			$data['main_menu'] = "member";
+			$data['menu'] = "add_member";
 
-		$this->load->view('dashboard/v_inputmember',$data);
+			$this->load->view('dashboard/v_inputmember',$data);
+		}else{
+			$data['headertitle'] = "Forbidden Page";
+
+			$this->load->view('error403',$data);
+		}
 	}
 
 	public function insert_member(){
@@ -132,6 +138,7 @@ class Home extends CI_Controller {
 			$input['address'] = $address;
 			$input['profil_picture'] = $picture_name;
 			$input['status'] = 1;
+			$input['level'] = 1;
 
 			$this->admin->input_member($input);
 			$response['pesan'] = '<div class="alert alert-success alert-dismissible text-left show fade">

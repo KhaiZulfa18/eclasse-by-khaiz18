@@ -9,15 +9,10 @@
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/third_party/bootstrap-social/bootstrap-social.css">
-  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/bootstrap-daterangepicker/daterangepicker.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/select2/dist/css/select2.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/selectric/public/selectric.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"> -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/third_party/summernote-master/dist/summernote-bs4.css">
 
   <!-- Eclasse CSS -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/eclasse.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/eclasse.css?v.1.0.4">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/assets/css/style.css">

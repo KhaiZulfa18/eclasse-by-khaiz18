@@ -8,17 +8,11 @@
 
   <!-- JS Libraies -->
   <script src="<?php echo base_url(); ?>assets/css/stisla-master/third_party/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <!-- <script src="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/cleave.js/dist/cleave.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/cleave.js/dist/addons/cleave-phone.us.js"></script>
-  <script src="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/select2/dist/js/select2.full.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/css/stisla-master/node_modules/selectric/public/jquery.selectric.min.js"></script> -->
+  <script src="<?php echo base_url(); ?>assets/css/stisla-master/third_party/summernote-master/dist/summernote-bs4.js"></script>
 
   <!-- Template JS File -->
   <script src="<?php echo base_url(); ?>assets/css/stisla-master/assets/js/scripts.js"></script>
   <script src="<?php echo base_url(); ?>assets/css/stisla-master/assets/js/custom.js"></script>
 
   <!-- Page Specific JS File -->
+  <!-- <script src="<?php echo base_url(); ?>assets/css/stisla-master/assets/js/page/components-chat-box.js"></script> -->

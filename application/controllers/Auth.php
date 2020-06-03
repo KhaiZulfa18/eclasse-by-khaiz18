@@ -61,6 +61,7 @@ class Auth extends CI_Controller {
 				'name' => $checkrows->name,
 				'gender' => $checkrows->gender, 
 				'profil_pic' => $checkrows->profil_picture, 
+				'level' => $checkrows->level, 
 				'status' => "login"
 			);
  
@@ -173,6 +174,7 @@ class Auth extends CI_Controller {
 			$input['address'] = $address;
 			$input['profil_picture'] = $picture_name;
 			$input['status'] = 1;
+			$input['level'] = 1;
 
 			$this->admin->input_member($input);
 			$response['pesan'] = '<div class="alert alert-success alert-dismissible text-left show fade">

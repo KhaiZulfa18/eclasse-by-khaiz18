@@ -7,7 +7,9 @@
     <th>Gender</th>
     <th>Address</th>
     <th>Status</th>
+    <?php if ($this->session->userdata('level')>1) { ?>
     <th>Action</th>
+    <?php } ?>
   </tr>
   <?php
   if($noPage==1){
@@ -35,12 +37,14 @@
       <div class="badge badge-danger">Non-Active</div>
       <?php }  ?>
     </td>
+    <?php if ($this->session->userdata('level')>1) { ?>
     <td class="text-center">
       <div class="btn-group mb-3" role="group">
         <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
         <button class="btn btn-danger" onClick="deleteData('<?php echo $data->id_user; ?>','<?php echo $noPage; ?>','<?php echo $data->name; ?>')"><i class="fa fa-trash"></i></button>
       </div>
     </td>
+    <?php } ?>
   </tr>
   <?php $no++; } ?>
 </table>
