@@ -18,38 +18,26 @@
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
-          <div class="section-header">
-            <h1>Tweet</h1>
-          </div>
 
-          <div class="section-body">
-            <h2 class="section-title">Tweet & Activities</h2>  
+          <div class="card card-primary">
             <div class="row">
-              <div class="col-12">
-                <div class="activities">
-                  <div class="activity">
-                    <img src="<?php echo base_url('images/profil_picture/asl.jpg'); ?>" class="activity-icon shadow-primary profil-pic">
-                    <div class="activity-detail">
-                      <div class="mb-2"><a href=""><h6>Khai Zulfa</h6></a></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacinia felis et eros aliquam, a auctor velit dignissim. Proin aliquam sapien et enim pharetra placerat. Sed feugiat tempor rhoncus. Donec nec nulla a arcu venenatis accumsan. Pellentesque consectetur, tortor ac laoreet feugiat, arcu odio congue risus, sit amet pellentesque risus velit mollis ante.</p>
-                      <div class="mb-2">
-                        <span class="text-job text-primary">2 min ago</span>
-                        <span class="bullet"></span>
-                        <a class="text-job" href="#">View</a>
-                        <div class="float-right dropdown">
-                          <a href="#" data-toggle="dropdown"><i class="fas fa-ellipsis-h"></i></a>
-                          <div class="dropdown-menu">
-                            <div class="dropdown-title">Options</div>
-                            <a href="#" class="dropdown-item has-icon"><i class="fas fa-eye"></i> View</a>
-                            <a href="#" class="dropdown-item has-icon"><i class="fas fa-list"></i> Detail</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item has-icon text-danger" data-confirm="Wait, wait, wait...|This action can't be undone. Want to take risks?" data-confirm-text-yes="Yes, IDC"><i class="fas fa-trash-alt"></i> Archive</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div class="card-header col-12">
+                <div class="col-lg-6 col-md-12">
+                  <h4 class="mr-2">Tweet</h4>
                 </div>
+                <div class="col-lg-6 col-md-12 ">
+                  <div id="card-header-form ">
+                    <input type="text" name="search" id="search" class="form-control col-lg-6 col-md-12 float-right" placeholder="Search">
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-body">
+            <div class="row" id="tweet-body">
+              <div id="tweet-post"></div>
+              <div class="col-12">
+                <div id="paging-tweet"></div>
               </div>
             </div>
           </div>
@@ -77,14 +65,17 @@
       placeholder: "What's happening?",
       // height: 100,
       toolbar: [
-        ['style', ['style']],
-        ['font', ['bold', 'underline', 'clear']],
-        ['color', ['color']],
-        ['view', ['fullscreen', 'codeview']]
+      ['style', ['style']],
+      ['font', ['bold', 'underline', 'clear']],
+      ['color', ['color']],
+      ['view', ['fullscreen', 'codeview']]
       ]
     });
+
   </script>
   <script src="<?php echo base_url(); ?>plugins/jquery-loading-overlay/dist/loadingoverlay.min.js"></script>
-  <script src="<?php echo base_url(); ?>js/tweet/send_tweet.js?v=1.0.0" type="text/javascript"></script>
+  <script src="<?php echo base_url(); ?>plugins/circle-indicator-spinner/dist/jquery-spinner.min.js"></script>
+  <script src="<?php echo base_url(); ?>js/tweet/timeline_tweet.js?v=1.0.1" type="text/javascript"></script>
+  <script src="<?php echo base_url(); ?>js/tweet/send_tweet.js?v=1.0.2" type="text/javascript"></script>
 </body>
 </html>

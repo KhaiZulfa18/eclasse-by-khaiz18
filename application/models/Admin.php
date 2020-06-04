@@ -8,20 +8,26 @@ class Admin extends CI_Model{
 		$this->db->insert('tbl_user',$input);
 	}
 
-	// Update data
+	// Update Member
 	function update_member($where,$update){
 		$this->db->where($where);
 		$this->db->update('tbl_user', $update);
 	}
 
-	// Update data
+	// Update Password
 	function update_password($where,$update){
 		$this->db->where($where);
 		$this->db->update('tbl_user', $update);
 	}
 
-	// Update data
+	// Update Photo
 	function update_photo($where,$update){
+		$this->db->where($where);
+		$this->db->update('tbl_user', $update);
+	}
+
+	// Update Level
+	function update_level($where,$update){
 		$this->db->where($where);
 		$this->db->update('tbl_user', $update);
 	}

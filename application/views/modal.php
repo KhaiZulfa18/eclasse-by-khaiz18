@@ -21,6 +21,43 @@
   </div>
 </div>
 
+<!-- Update Level Data Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" id="update-level-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-group col-lg-12">
+            <label>Choose Level</label>
+            <select class="form-control" id="level">
+              <option value="1">Member</option>
+              <option value="2">Admin</option>
+              <?php if ($this->session->userdata('level')>2) { ?>
+                <option value="3">Super-Admin</option>
+              <?php } ?>
+            </select>
+          </div>
+          <div class="form-group col-lg-12">
+            <div id="attention-update"></div>
+          </div>
+        </div>
+        <input type="hidden" name="id_user" id="id_user">
+        <input type="hidden" name="pageno" id="pageno">
+      </div>
+      <div class="modal-footer bg-whitesmoke br">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnDismiss">No</button>
+        <button type="button" class="btn btn-primary" id="btnUpdateLevel">Yes, I'm sure</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Delete Account Modal -->
 <div class="modal fade" tabindex="-1" role="dialog" id="delete-account-modal">
   <div class="modal-dialog" role="document">

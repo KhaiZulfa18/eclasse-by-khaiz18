@@ -18,7 +18,7 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
+	var $profile;
 	public function __construct() {
 		parent::__construct();
 		if(!$this->session->userdata('id_user')){
@@ -27,7 +27,10 @@ class Home extends CI_Controller {
 		else {
 			$this->load->model('admin');
 			$this->load->helper('text');             
-			$this->load->helper('string');             
+			$this->load->helper('string');
+			// $this->profile = array(
+			// 	'tes' => "Tes"
+			// );             
 		}
 	}
 
@@ -36,6 +39,7 @@ class Home extends CI_Controller {
 		$data['headertitle'] = "Home - Eclasse";
 		$data['main_menu'] = "home";
 		$data['menu'] = "";
+		// $data['profile'] = $this->profile;
 
 		$this->load->view('template', $data);
 	}
@@ -234,6 +238,41 @@ class Home extends CI_Controller {
 		$data['noPage'] = $noPage;
 
 		$this->load->view('dashboard/listmember/paging_member', $data);
+	}
+
+	public function update_level(){
+		$id_user = $this->input->post('id_user');
+		$level = $this->input->post('level');
+
+		$user = $this->session->userdata('level');
+
+		if ($level>$user) {
+			$response['status'] = 'gagal';
+			$response['pesan'] = '<div class="alert alert-danger alert-dismissible text-left show fade">
+			<div class="alert-body">
+			<button class="close" data-dismiss="alert">
+			<span>&times;</span>
+			</button>
+			Anda tidak memiliki akses!
+			</div>
+			</div>';
+		}else{
+			$update['level'] = $level; 
+
+			$where['id_user'] = $id_user;
+			$this->admin->update_level($where,$update);
+
+			$response['status'] = 'sukses';
+			$response['pesan'] = '<div class="alert alert-success alert-dismissible text-left show fade">
+			<div class="alert-body">
+			<button class="close" data-dismiss="alert">
+			<span>&times;</span>
+			</button>
+			Anda tidak memiliki akses!
+			</div>
+			</div>';
+		}
+		echo json_encode($response);
 	}
 
 	public function delete_member(){

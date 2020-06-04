@@ -17,4 +17,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/assets/css/style.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/assets/css/components.css">
+
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/circle-indicator-spinner/dist/jquery-spinner.min.css">
 </head>

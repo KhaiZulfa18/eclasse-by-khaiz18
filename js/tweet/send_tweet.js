@@ -1,6 +1,6 @@
 function formTweet(){
 	$("#tweet-modal").modal('toggle');
-	$("#tweet-modal-modal").modal('show');
+	$("#tweet-modal").modal('show');
 }
 
 $('#btnTweet').click(function(){
@@ -8,10 +8,8 @@ $('#btnTweet').click(function(){
 });
 
 function tweet() {
-	var id_user = $('#id_user').val();
-	var name_account = $('#name_account').val();
-	var type_account = $('input[name="type_account"]:checked').val();
-	var link_account = $('#link_account').val();
+	var summernote = $('#tweet_txtarea');
+	var tweet_post = summernote.summernote('code');
 	
 	var lanjut = true;
 
@@ -20,47 +18,42 @@ function tweet() {
 	<button class="close" data-dismiss="alert">
 	<span>&times;</span>
 	</button>
-	Oops, tolong isi yang harus diisi! contohnya hati saya ><
+	Oops, Tweet tidak boleh kosong
 	</div>
 	</div>`;
 
-	if(name_account.length==0){
-		$('#attention').html(alert_danger);
-		return false;
-	}
-	if(type_account.length==0){
-		$('#attention').html(alert_danger);
+	if (summernote.summernote('isEmpty')){
+		$('#attention-tweet-tweet').html(alert_danger);
 		return false;
 	}
 
 	if(lanjut==true){
 		$.ajax({
 			type : "POST", 
-			url  : base_url+'profile/insert_account',
+			url  : base_url+'tweet/insert_tweet',
 			data : {
-				id_user:id_user,
-				name_account:name_account,
-				type_account:type_account,
-				link_account:link_account
+				tweet_post: tweet_post
 			},
 			beforeSend: function (){
-				$("#form-add-account").LoadingOverlay("show");
-				$("#btnAdd").prop('disabled', true);
+				$("#form-tweet").LoadingOverlay("show");
+				$("#btnTweet").prop('disabled', true);
 				$("#btnDismiss").prop('disabled', true);
 			},
 			success	: function(response){ 
 				if(response.status=='gagal'){
-					$('#attention').html(response.pesan);
-					$("#form-add-account").LoadingOverlay("hide", true);
+					$('#attention-tweet').html(response.pesan);
+					// spinner.hide();
+					$("#form-tweet").LoadingOverlay("hide", true);
 				}
 				else{
-					$("#form-add-account").LoadingOverlay("hide", true);
-					$("#addaccount-modal").modal('hide');
-					$("#btnDelete").prop('disabled', false);
+					$("#form-tweet").LoadingOverlay("hide", true);
+					// spinner.hide();
+					$("#tweet-modal").modal('hide');
+					$("#btnTweet").prop('disabled', false);
 					$("#btnDismiss").prop('disabled', false);
-					$('#attention').html(response.pesan);
+					$('#attention-tweet').html(response.pesan);
 					clear_data();
-					location.reload();
+					getTweet(1);
 				}
 			}
 		});
@@ -68,6 +61,5 @@ function tweet() {
 }
 
 function clear_data(){
-	$('#name_account').val('');
-	$('#link_account').val('');
+	$('#tweet_txtarea').summernote('reset');
 }

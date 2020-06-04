@@ -78,6 +78,7 @@
     var base_url = '<?php echo base_url(); ?>';
   </script>
   <script src="<?php echo base_url(); ?>plugins/jquery-loading-overlay/dist/loadingoverlay.min.js"></script>
+  <script src="<?php echo base_url(); ?>js/dashboard/update_level.js?v=1.0.1" type="text/javascript"></script>
   <script src="<?php echo base_url(); ?>js/dashboard/list_member.js?v=1.0.1" type="text/javascript"></script>
 </body>
 </html>
