@@ -27,3 +27,4 @@
     </li>
   </ul>
 </nav>
+<a id="back-to-top" href="#" class="btn btn-primary btn-sm back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>

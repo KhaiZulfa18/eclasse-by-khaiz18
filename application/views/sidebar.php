@@ -18,10 +18,10 @@
       <li class="<?php if($main_menu=="tweet"){ echo "active"; } ?>"><a class="nav-link" href="<?php echo base_url('tweet'); ?>"><i class="fas fa-comment"></i><span>Tweet</span></a></li>
       <!-- Information -->
       <li class="menu-header">Information</li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown <?php if($main_menu=="info"){ echo "active"; } ?>">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-info-circle"></i> <span>Information</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="layout-default.html">Agenda</a></li>
+          <li><a class="nav-link" href="<?php echo base_url('info'); ?>">Profile Class</a></li>
           <li><a class="nav-link" href="layout-transparent.html">Note</a></li>
         </ul>
       </li>
@@ -37,13 +37,13 @@
         </ul>
       </li>
       <?php if ($this->session->userdata('level')>1) { ?>
-      <li class="nav-item dropdown">
-        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-plus"></i> <span>Information</span></a>
+      <li class="nav-item dropdown <?php if($main_menu=="settings"){ echo "active"; } ?>">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cogs"></i> <span>Info Settings</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="layout-default.html">Add Agenda</a></li>
-          <li><a class="nav-link" href="layout-default.html">List Agenda</a></li>
+          <li><a class="nav-link" href="<?php echo base_url('info/settings'); ?>">Info</a></li>
+          <!-- <li><a class="nav-link" href="layout-default.html">List Agenda</a></li>
           <li><a class="nav-link" href="layout-transparent.html">Add Note</a></li>
-          <li><a class="nav-link" href="layout-transparent.html">List Note</a></li>
+          <li><a class="nav-link" href="layout-transparent.html">List Note</a></li> -->
         </ul>
       </li>
       <?php } ?>

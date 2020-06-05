@@ -13,6 +13,11 @@
 	height: 150px;
 	object-fit: cover;
 }
+.members-img{
+	/*filter: blur(8px);*/
+	object-fit: cover;
+
+}
 
 .floating-button{
 	display: block;
@@ -32,25 +37,39 @@
 	bottom: 70px;
 }
 
+.back-to-top {
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	display: none;
+	z-index: 2;
+}
+
 @media screen and (max-width: 992px) {
-  .floating-button{
-  	right: 40px;
-  	bottom: 60px;
-  }
+	.floating-button{
+		right: 40px;
+		bottom: 60px;
+	}
 }
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
-  .floating-button{
-  	right: 30px;
-  	bottom: 60px;
-  }
+	.floating-button{
+		right: 30px;
+		bottom: 60px;
+	}
 }
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 400px) {
-  .floating-button{
-  	right: 20px;
-  	bottom: 30px;
-  }
+	.floating-button{
+		right: 20px;
+		bottom: 30px;
+	}
+
+	.back-to-top {
+		right: 5px;
+		bottom: 5px;
+
+	}
 }

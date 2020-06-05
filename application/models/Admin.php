@@ -84,4 +84,20 @@ class Admin extends CI_Model{
 		}
 		return $this->db->get($table);
 	}
+
+	function get_class_info(){
+		$this->db->where('status','profile');
+		return $this->db->get('tbl_info');
+	}
+
+	function get_total_member(){
+		$this->db->where('status',1);
+		return $this->db->get('tbl_user');
+	}
+
+	// Update profile class
+	function update_profile_class($update){
+		$this->db->where('status','profile');
+		$this->db->update('tbl_info', $update);
+	}
 }

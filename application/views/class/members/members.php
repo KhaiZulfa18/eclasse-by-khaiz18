@@ -3,7 +3,8 @@
   <div class="col-12 col-sm-6 col-md-6 col-lg-4">
     <article class="article article-style-b">
       <div class="article-header">
-        <div class="article-image text-center" style="background-image: url(<?php echo base_url('images/profil_picture/'.$data->profil_picture); ?>);">
+        <div class="article-image text-center" style="background-image: url(<?php echo base_url('images/profil_picture/'.$data->profil_picture); ?>); ">
+        <!-- <div class="article-image text-center members-img"> -->
           <img class="img-fluid h-100 w-auto" src="<?php echo base_url('images/profil_picture/'.$data->profil_picture); ?>">
         </div>
       </div>

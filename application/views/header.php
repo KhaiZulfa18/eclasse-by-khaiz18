@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/third_party/summernote-master/dist/summernote-bs4.css">
 
   <!-- Eclasse CSS -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/eclasse.css?v.1.0.4">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/eclasse.css?v.1.0.7">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/assets/css/style.css">
