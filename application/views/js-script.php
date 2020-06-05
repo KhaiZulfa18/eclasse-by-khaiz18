@@ -30,7 +30,7 @@
     $('#back-to-top').click(function () {
       $('body,html').animate({
         scrollTop: 0
-      }, 1000);
+      }, 700);
       return false;
     });
 });

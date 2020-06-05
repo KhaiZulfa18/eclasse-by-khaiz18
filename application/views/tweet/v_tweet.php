@@ -75,7 +75,20 @@
   </script>
   <script src="<?php echo base_url(); ?>plugins/jquery-loading-overlay/dist/loadingoverlay.min.js"></script>
   <script src="<?php echo base_url(); ?>plugins/circle-indicator-spinner/dist/jquery-spinner.min.js"></script>
+  <script src="<?php echo base_url(); ?>plugins/clipboard-js/dist/clipboard.min.js"></script>
   <script src="<?php echo base_url(); ?>js/tweet/timeline_tweet.js?v=1.0.1" type="text/javascript"></script>
-  <script src="<?php echo base_url(); ?>js/tweet/send_tweet.js?v=1.0.2" type="text/javascript"></script>
+  <script src="<?php echo base_url(); ?>js/tweet/send_tweet.js?v=1.0.6" type="text/javascript"></script>
+  <!-- <script src="<?php echo base_url(); ?>js/tweet/copy_tweet.js?v=1.0.1" type="text/javascript"></script> -->
+  <script>
+    var clipboard = new ClipboardJS('.copy-button');
+
+    clipboard.on('success', function(e) {
+      console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+      console.log(e);
+    });
+  </script>
 </body>
 </html>

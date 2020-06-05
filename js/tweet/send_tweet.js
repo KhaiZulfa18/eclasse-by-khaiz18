@@ -10,6 +10,7 @@ $('#btnTweet').click(function(){
 function tweet() {
 	var summernote = $('#tweet_txtarea');
 	var tweet_post = summernote.summernote('code');
+	var plain_tweet = $($("#tweet_txtarea").summernote("code")).text();
 	
 	var lanjut = true;
 
@@ -32,7 +33,8 @@ function tweet() {
 			type : "POST", 
 			url  : base_url+'tweet/insert_tweet',
 			data : {
-				tweet_post: tweet_post
+				tweet_post: tweet_post,
+				plain_tweet: plain_tweet
 			},
 			beforeSend: function (){
 				$("#form-tweet").LoadingOverlay("show");

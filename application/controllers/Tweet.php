@@ -45,12 +45,14 @@ class Tweet extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 
 		$tweet_post = $this->input->post('tweet_post');
+		$plain_tweet = $this->input->post('plain_tweet');
 
 		$id_tweet = random_string('numeric',16);
 
 		$input['id_user'] = $id_user;
 		$input['id_tweet'] = $id_tweet;
 		$input['tweet'] = $tweet_post;
+		$input['plain_tweet'] = $plain_tweet;
 		$input['likes'] = 0;
 
 		$this->tweets->insert_tweet($input);
@@ -98,15 +100,6 @@ class Tweet extends CI_Controller {
 		else {
 			$noPage = $page;
 		}
-
-		// if (empty($gender&&$status)) {
-		// 	$where['status'] = 1;
-		// }else{
-		// 	$where = array(
-		// 		'status' => $status,
-		// 		'gender' => $gender
-		// 	);
-		// }
 
 		if (!empty($search)) {
 			$like['tbl_user.name'] = $search;
