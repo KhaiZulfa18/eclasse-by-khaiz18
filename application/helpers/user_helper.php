@@ -68,3 +68,30 @@ if ( !function_exists('date_indo') ) {
 	}
 
 }
+
+// Fungsi Year Footer
+if ( !function_exists('version') ) {
+	
+	function version(){
+		$version = '1.0.0';
+
+		return $version;
+	}
+
+}
+
+// Fungsi Footer
+if ( !function_exists('footer') ) {
+	
+	function footer(){
+		$copyright = 'Copyright &copy; ';
+		$year = date('Y');
+		$bullet = '<div class="bullet"></div>';
+		$by = 'by <a href="https://mondayy.site/">Khai Zulfa</a>';
+
+		$footer = $copyright.$year.$bullet.$by;
+
+		return $footer;
+	}
+
+}

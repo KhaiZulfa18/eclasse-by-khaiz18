@@ -19,7 +19,7 @@ function updatePhoto(){
 	var lanjut = true;
 
 	if(id_user.length==0){
-		$('#attention-photo').html('asdasd');
+		$('#attention-photo').html('error');
 		return false;
 	}
 	if(picture_name.length==0){
@@ -58,10 +58,4 @@ function updatePhoto(){
 			}
 		});
 	}
-}
-
-function back(){
-	var base_url = $('#base_url').val();
-
-	window.location.assign(base_url+"useraccount/myaccount");
 }

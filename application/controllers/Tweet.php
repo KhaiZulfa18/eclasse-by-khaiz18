@@ -18,7 +18,7 @@ class Tweet extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
+	var $profile;
 	public function __construct() {
 		parent::__construct();
 		if(!$this->session->userdata('id_user')){
@@ -29,7 +29,8 @@ class Tweet extends CI_Controller {
 			$this->load->model('tweets');
 			$this->load->helper('text');             
 			$this->load->helper('user_helper');             
-			$this->load->helper('string');             
+			$this->load->helper('string');          
+			$this->profile = $this->admin->get_profile_class();         
 		}
 	}
 
@@ -37,6 +38,7 @@ class Tweet extends CI_Controller {
 		$data['headertitle'] = "Tweet";
 		$data['main_menu'] = "tweet";
 		$data['menu'] = "";
+		$data['profile_class'] = $this->profile;
 
 		$this->load->view('tweet/v_tweet', $data);
 	}

@@ -1,7 +1,7 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="<?php echo base_url(); ?>"><i class="fas fa-code"></i>&nbsp;Eclasse</a>
+      <a href="<?php echo base_url(); ?>"><i class="fa fa-code"></i>&nbsp;<?= $profile_class->class; ?></a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="<?php echo base_url(); ?>"><i class="fas fa-code"></i></a>

@@ -19,6 +19,14 @@
 
 }
 
+.class-img{
+	/*filter: blur(8px);*/
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+
+}
+
 .floating-button{
 	display: block;
 	width: 70px;

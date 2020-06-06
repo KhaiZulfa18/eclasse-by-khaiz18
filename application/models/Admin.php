@@ -100,4 +100,15 @@ class Admin extends CI_Model{
 		$this->db->where('status','profile');
 		$this->db->update('tbl_info', $update);
 	}
+
+	// Update Photo
+	function update_logo($update){
+		$this->db->where('status','profile');
+		$this->db->update('tbl_info', $update);
+	}
+
+	function get_profile_class(){
+		$this->db->where('status','profile');
+		return $this->db->get('tbl_info')->row();
+	}
 }

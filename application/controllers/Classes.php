@@ -18,7 +18,7 @@ class Classes extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
+	var $profile;
 	public function __construct() {
 		parent::__construct();
 		if(!$this->session->userdata('id_user')){
@@ -28,7 +28,8 @@ class Classes extends CI_Controller {
 			$this->load->model('admin');
 			$this->load->helper('text');             
 			$this->load->helper('string');
-			$this->load->helper('user_helper');             
+			$this->load->helper('user_helper');       
+			$this->profile = $this->admin->get_profile_class();      
 		}
 	}
 
@@ -36,6 +37,7 @@ class Classes extends CI_Controller {
 		$data['headertitle'] = "Member";
 		$data['main_menu'] = "class";
 		$data['menu'] = "members";
+		$data['profile_class'] = $this->profile;
 
 		$this->load->view('class/members/v_members', $data);
 	}
@@ -121,6 +123,8 @@ class Classes extends CI_Controller {
 			$data['menu'] = '';
 			$data['user'] = $user;
 	        $data['account'] = $this->admin->account($id_user)->result();
+			$data['profile_class'] = $this->profile;
+	        
  
 			$this->load->view('class/profilemember/v_profilemember',$data);
 		}

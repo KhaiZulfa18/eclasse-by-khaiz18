@@ -28,9 +28,9 @@ class Home extends CI_Controller {
 			$this->load->model('admin');
 			$this->load->helper('text');             
 			$this->load->helper('string');
-			// $this->profile = array(
-			// 	'tes' => "Tes"
-			// );             
+			$this->load->helper('user_helper');       
+			
+	        $this->profile = $this->admin->get_profile_class();                      
 		}
 	}
 
@@ -39,7 +39,7 @@ class Home extends CI_Controller {
 		$data['headertitle'] = "Home - Eclasse";
 		$data['main_menu'] = "home";
 		$data['menu'] = "";
-		// $data['profile'] = $this->profile;
+		$data['profile_class'] = $this->profile;
 
 		$this->load->view('template', $data);
 	}
@@ -49,6 +49,7 @@ class Home extends CI_Controller {
 			$data['headertitle'] = "Add Member";
 			$data['main_menu'] = "member";
 			$data['menu'] = "add_member";
+			$data['profile_class'] = $this->profile;
 
 			$this->load->view('dashboard/v_inputmember',$data);
 		}else{
@@ -162,6 +163,7 @@ class Home extends CI_Controller {
 		$data['headertitle'] = "List Member";
 		$data['main_menu'] = "member";
 		$data['menu'] = "list_member";
+		$data['profile_class'] = $this->profile;
 
 		$this->load->view('dashboard/listmember/v_listmember',$data);
 	}

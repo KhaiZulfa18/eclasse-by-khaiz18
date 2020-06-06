@@ -34,6 +34,9 @@
                       <li class="nav-item">
                         <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#profile_class_Setting" role="tab" aria-controls="profile" aria-selected="true">Profile Class</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="logo-tab4" data-toggle="tab" href="#logo_class_setting" role="tab" aria-controls="logo" aria-selected="true">Logo Class</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -84,7 +87,43 @@
                           </form>
                         </div>
                         <div class="card-footer bg-whitesmoke text-md-right">
-                          <button class="btn btn-primary" type="button" id="btnSaveChanges">Save Changes</button>
+                          <?php if ($this->session->userdata('level')>2) { ?>
+                            <button class="btn btn-primary" type="button" id="btnSaveChanges">Save Changes</button>
+                          <?php }else{ ?>
+                            <button class="btn btn-secondary disabled" type="button" id="">No Permission</button>
+                          <?php } ?>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="logo_class_setting" role="tabpanel" aria-labelledby="logo-tab4">
+                        <div class="card-header">
+                          <h4>Logo Class</h4>
+                        </div>
+                        <div class="card-body" id="form-update-photo">
+                          <div class="col-lg-12 text-center">
+                            <?php $logo = (!empty($class->logo)) ? $class->logo : 'logokz.png'; ?>
+                            <img src="<?= base_url('images/class_logo/'.$logo); ?>" class="rounded-circle profile-img-lg">
+                          </div>
+                          <div class="form-group mt-3">
+                            <label>Change Logo</label>
+                            <div class="custom-file">
+                              <div class="col-lg-12 col-md-12">
+                                <!-- <input type="file" class="custom-file-input form-control" name="picture" id="picture"> -->
+                                <!-- <label class="custom-file-label" for="picture">Choose file</label> -->
+                                <input type="file" name="picture" id="picture">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group col-lg-12 col-md-12">
+                            <div id="attention-photo"></div>
+                          </div>
+                        </div>
+                        <div class="card-footer bg-whitesmoke text-md-right">
+                          <?php if ($this->session->userdata('level')>2) { ?>
+                            <button class="btn btn-danger" type="button" id="btnDeletePhoto">Empty Logo</button>
+                            <button class="btn btn-primary" type="button" id="btnUpdatePhoto">Change Logo</button>
+                          <?php }else{ ?>
+                            <button class="btn btn-secondary disabled" type="button" id="">No Permission</button>
+                          <?php } ?>
                         </div>
                       </div>
                     </div>
@@ -108,5 +147,7 @@
   </script>
   <script src="<?php echo base_url(); ?>plugins/jquery-loading-overlay/dist/loadingoverlay.min.js"></script>
   <script src="<?php echo base_url(); ?>js/settings/info_settings.js?v=1.0.0" type="text/javascript"></script>
+  <script src="<?php echo base_url(); ?>js/settings/update_logo.js?v=1.0.0" type="text/javascript"></script>
+  <script src="<?php echo base_url(); ?>js/settings/empty_logo.js?v=1.0.0" type="text/javascript"></script>
 </body>
 </html>

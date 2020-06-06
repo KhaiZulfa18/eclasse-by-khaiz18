@@ -12,12 +12,14 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/third_party/summernote-master/dist/summernote-bs4.css">
 
   <!-- Eclasse CSS -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/eclasse.css?v.1.0.8">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/eclasse.css?v.1.0.9">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/assets/css/style.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/stisla-master/assets/css/components.css">
 
   <!-- Plugins CSS -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/circle-indicator-spinner/dist/jquery-spinner.min.css">
+  <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/toastr-master/build/toastr.min.css"> -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>plugins/toastr-master/build/toastr.css">
+
 </head>

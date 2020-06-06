@@ -27,7 +27,8 @@
               <div class="col-12 col-md-12 col-lg-12">
                 <div class="card profile-widget">
                   <div class="profile-widget-header">
-                    <img alt="image" src="<?= base_url('images/profil_picture/'.$this->session->userdata('profil_pic')); ?>" class="rounded-circle profile-widget-picture profile-img">
+                    <?php $logo = (!empty($class->logo)) ? $class->logo : 'logokz.png'; ?>
+                    <img alt="image" src="<?= base_url('images/class_logo/'.$logo); ?>" class="rounded-circle profile-widget-picture profile-img">
                     <div class="profile-widget-items">
                       <div class="profile-widget-item">
                         <div class="profile-widget-item-label">Years</div>
@@ -82,7 +83,5 @@
   <script>
     var base_url = '<?php echo base_url(); ?>';
   </script>
-  <script src="<?php echo base_url(); ?>plugins/jquery-loading-overlay/dist/loadingoverlay.min.js"></script>
-  <!-- <script src="<?php echo base_url(); ?>js/profile/add_account.js?v=1.0.2" type="text/javascript"></script> -->
 </body>
 </html>

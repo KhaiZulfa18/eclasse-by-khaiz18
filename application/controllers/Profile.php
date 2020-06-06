@@ -18,7 +18,7 @@ class Profile extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
+	var $profile;
 	public function __construct() {
 		parent::__construct();
 		if(!$this->session->userdata('id_user')){
@@ -29,6 +29,7 @@ class Profile extends CI_Controller {
 			$this->load->helper('text');             
 			$this->load->helper('string');        
 			$this->load->helper('user_helper');     
+			$this->profile = $this->admin->get_profile_class();      
 		}
 	}
 
@@ -42,6 +43,7 @@ class Profile extends CI_Controller {
 			$data['headertitle'] = 'My Profile';
 			$data['main_menu'] = '';
 			$data['menu'] = '';
+			$data['profile_class'] = $this->profile;
 
 			$data['user'] = $check->row();
 			$data['account'] = $this->admin->account($id_user)->result();
@@ -60,6 +62,7 @@ class Profile extends CI_Controller {
 			$data['headertitle'] = 'Setting Profile';
 			$data['main_menu'] = '';
 			$data['menu'] = '';
+			$data['profile_class'] = $this->profile;
 
 			$data['user'] = $check->row();
 			$data['account'] = $this->admin->account($id_user)->result();
@@ -222,7 +225,7 @@ class Profile extends CI_Controller {
 				Oops, photo kosong!
 				</div>
 				</div>';
-			$response['pesan'] = 'tes'.$pic;
+			// $response['pesan'] = 'tes'.$pic;
 			$response['status'] = "gagal";
 		}
 		echo json_encode($response);

@@ -13,8 +13,8 @@
         <a href="<?= base_url('profile'); ?>" class="dropdown-item has-icon">
           <i class="far fa-user"></i> Profile
         </a>
-        <a href="features-activities.html" class="dropdown-item has-icon">
-          <i class="fas fa-bolt"></i> Activities
+        <a href="<?= base_url('tweet'); ?>" class="dropdown-item has-icon">
+          <i class="fas fa-comment"></i> Tweet
         </a>
         <a href="<?= base_url('profile/setting_profile') ?>" class="dropdown-item has-icon">
           <i class="fas fa-cog"></i> Settings

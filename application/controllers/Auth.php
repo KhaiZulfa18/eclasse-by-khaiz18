@@ -18,7 +18,7 @@ class Auth extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
+	var $profile;
 	public function __construct() {
 		parent::__construct();
 		
@@ -26,12 +26,14 @@ class Auth extends CI_Controller {
 		$this->load->model('admin');
         $this->load->helper('cookie');		          
         $this->load->helper('string');		          
-        $this->load->helper('text');		          
-		
+        $this->load->helper('text');	
+        $this->load->helper('user_helper');	
+        $this->profile = $this->admin->get_profile_class();          
 	}
 
 	public function index(){
 		$data['headertitle'] = 'Login';
+		$data['profile_class'] = $this->profile;
 
 		$this->load->view('auth/v_login',$data);
 	}
@@ -86,6 +88,7 @@ class Auth extends CI_Controller {
 
 	public function register(){
 		$data['headertitle'] = 'Register';
+		$data['profile_class'] = $this->profile;
 
 		$this->load->view('auth/v_register',$data);
 	}

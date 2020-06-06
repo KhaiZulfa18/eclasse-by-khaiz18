@@ -8,9 +8,9 @@ $('#search').change(function(){
 
 function getTweet(pageno){
 
-	var spinner = new jQuerySpinner({
-      parentId: 'tweet-body'
-    });
+	// var spinner = new jQuerySpinner({
+ //      parentId: 'tweet-body'
+ //    });
 
 	var search = $('#search').val();
 
