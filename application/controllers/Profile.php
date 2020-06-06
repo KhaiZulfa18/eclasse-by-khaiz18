@@ -26,6 +26,7 @@ class Profile extends CI_Controller {
 		}
 		else {
 			$this->load->model('admin');
+			$this->load->model('tweets');
 			$this->load->helper('text');             
 			$this->load->helper('string');        
 			$this->load->helper('user_helper');     
@@ -259,4 +260,66 @@ class Profile extends CI_Controller {
 		$this->admin->delete_account($where);
 	}
 
+
+	public function get_tweet(){
+		$search = $this->input->post('search');
+		$page = $this->input->post('page');
+
+		$dataPerPage = 20;
+		if(empty($page)) {
+			$noPage = 1;
+		}
+		else {
+			$noPage = $page;
+		}
+		$offset = ($noPage - 1) * $dataPerPage;
+
+
+		if (!empty($search)) {
+			$like['tbl_user.name'] = $search;
+			$like2['tbl_tweet.tweet'] = $search;
+		}
+		else {
+			$like = NULL;
+			$like2 = NULL;
+		}
+		$where['tbl_tweet.id_user'] = $this->session->userdata('id_user');
+
+		$data['list_tweet'] = $this->tweets->get_data_cond_two_join_tweet($where,$like,$like2,'tbl_tweet.id','DESC',$offset,$dataPerPage)->result();
+
+		$data['noPage'] = $noPage;
+		$data['offset'] = $offset;
+
+		$this->load->view('tweet/tweet_post', $data);
+	}
+
+	public function paging_tweet(){
+		$search = $this->input->post('search');
+		$page = $this->input->post('page');
+
+		$dataPerPage = 20;
+		if(empty($page)) {
+			$noPage = 1;
+		}
+		else {
+			$noPage = $page;
+		}
+
+		if (!empty($search)) {
+			$like['tbl_user.name'] = $search;
+			$like2['tbl_tweet.tweet'] = $search;
+		}
+		else {
+			$like = NULL;
+			$like2 = NULL;
+		}
+		$where['tbl_tweet.id_user'] = $this->session->userdata('id_user');
+		
+		$jumData = $this->tweets->get_paging_cond_two_join_tweet($where,$like,$like2)->num_rows();
+		$data['jumData'] = $jumData;
+		$data['jumPage'] = ceil($jumData/$dataPerPage);
+		$data['noPage'] = $noPage;
+
+		$this->load->view('tweet/tweet_paging', $data);
+	}
 }

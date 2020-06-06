@@ -47,7 +47,7 @@
       </div>
       <div class="modal-footer bg-whitesmoke br">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnDismiss">No</button>
-        <button type="button" class="btn btn-danger" id="btnDelete">Yes</button>
+        <button type="button" class="btn btn-danger" id="btnDeleteTweet">Yes</button>
       </div>
     </div>
   </div>

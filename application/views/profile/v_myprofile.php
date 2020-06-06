@@ -72,6 +72,13 @@
                 </div>
               </div>
             </div>
+            <h2 class="section-title">Tweet by <?= $user->name; ?></h2>
+            <div class="row" id="tweet-body">
+              <div id="tweet-post"></div>
+              <div class="col-12">
+                <div id="paging-tweet"></div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -80,6 +87,7 @@
       <?php 
         $this->load->view('footer'); 
         $this->load->view('modal'); 
+        $this->load->view('tweet/modal_tweet'); 
       ?>
     </div>
   </div>
@@ -90,6 +98,10 @@
     var base_url = '<?php echo base_url(); ?>';
   </script>
   <script src="<?php echo base_url(); ?>plugins/jquery-loading-overlay/dist/loadingoverlay.min.js"></script>
+  <script src="<?php echo base_url(); ?>plugins/clipboard-js/dist/clipboard.min.js"></script>
+  <script src="<?php echo base_url(); ?>plugins/toastr-master/build/toastr.min.js"></script>
   <script src="<?php echo base_url(); ?>js/profile/add_account.js?v=1.0.2" type="text/javascript"></script>
+  <script src="<?php echo base_url(); ?>js/profile/my_tweet.js?v=1.0.2" type="text/javascript"></script>
+  <script src="<?php echo base_url(); ?>js/tweet/copy_tweet.js?v=1.0.1" type="text/javascript"></script>
 </body>
 </html>

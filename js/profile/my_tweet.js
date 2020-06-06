@@ -8,15 +8,11 @@ $('#search').change(function(){
 
 function getTweet(pageno){
 
-	// var spinner = new jQuerySpinner({
- //      parentId: 'tweet-body'
- //    });
-
 	var search = $('#search').val();
 
 	$.ajax({
 		type: 'POST',
-		url: base_url+'tweet/get_tweet',
+		url: base_url+'profile/get_tweet',
 		data: {
 			search: search,
 			page: pageno
@@ -40,7 +36,7 @@ function paging(pageno){
 
 	$.ajax({
 		type: 'POST',
-		url: base_url+'tweet/paging_tweet',
+		url: base_url+'profile/paging_tweet',
 		data: {
 			search: search,
 			page: pageno
