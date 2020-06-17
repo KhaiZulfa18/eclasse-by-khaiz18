@@ -30,8 +30,8 @@
                     <img alt="image" src="<?= base_url('images/profil_picture/'.$user->profil_picture); ?>" class="rounded-circle profile-widget-picture profile-img">
                     <div class="profile-widget-items">
                       <div class="profile-widget-item">
-                        <div class="profile-widget-item-label">Posts</div>
-                        <div class="profile-widget-item-value">187</div>
+                        <div class="profile-widget-item-label">Tweets</div>
+                        <div class="profile-widget-item-value"><?= $tweet_count; ?></div>
                       </div>
                       <div class="profile-widget-item">
                         <div class="profile-widget-item-label">Followers</div>

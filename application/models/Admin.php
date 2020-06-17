@@ -111,4 +111,10 @@ class Admin extends CI_Model{
 		$this->db->where('status','profile');
 		return $this->db->get('tbl_info')->row();
 	}
+
+	function member_count(){
+		$this->db->where('status',1);
+		return $this->db->get('tbl_user')->num_rows();
+	}
+
 }

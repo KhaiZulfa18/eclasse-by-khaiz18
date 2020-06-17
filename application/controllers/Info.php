@@ -26,6 +26,7 @@ class Info extends CI_Controller {
 		}
 		else {
 			$this->load->model('admin');
+			$this->load->model('note');
 			$this->load->helper('text');             
 			$this->load->helper('user_helper');             
 			$this->load->helper('string');     
@@ -176,5 +177,132 @@ class Info extends CI_Controller {
 			$response['status'] = "gagal";
 		}
 		echo json_encode($response);
+	}
+
+	//notes
+	public function notes(){
+		$data['headertitle'] = 'Note';
+		$data['main_menu'] = 'info';
+		$data['menu'] = 'notes';
+		$data['profile_class'] = $this->profile;
+		$data['pinned_notes'] = $this->note->get_pinned_notes()->result();
+		
+		$this->load->view('notes/v_notes',$data);
+	}
+
+	public function get_notes(){
+		$search = $this->input->post('search');
+		$page = $this->input->post('page');
+
+		$dataPerPage = 10;
+		if(empty($page)) {
+			$noPage = 1;
+		}
+		else {
+			$noPage = $page;
+		}
+		$offset = ($noPage - 1) * $dataPerPage;
+
+
+		if (!empty($search)) {
+			$like['tbl_user.name'] = $search;
+			$like2['tbl_note.plain_note'] = $search;
+		}
+		else {
+			$like = NULL;
+			$like2 = NULL;
+		}
+		$where = NULL;
+		$data['list_notes'] = $this->note->get_data_cond_two_join_note($where,$like,$like2,'tbl_note.status','DESC',$offset,$dataPerPage)->result();
+
+		$data['noPage'] = $noPage;
+		$data['offset'] = $offset;
+
+		$this->load->view('notes/notes', $data);
+	}
+
+	public function paging_notes(){
+		$search = $this->input->post('search');
+		$page = $this->input->post('page');
+
+		$dataPerPage = 10;
+		if(empty($page)) {
+			$noPage = 1;
+		}
+		else {
+			$noPage = $page;
+		}
+
+		if (!empty($search)) {
+			$like['tbl_user.name'] = $search;
+			$like2['tbl_note.plain_note'] = $search;
+		}
+		else {
+			$like = NULL;
+			$like2 = NULL;
+		}
+		$where = NULL;
+		$jumData = $this->note->get_paging_cond_two_join_note($where,$like,$like2)->num_rows();
+		$data['jumData'] = $jumData;
+		$data['jumPage'] = ceil($jumData/$dataPerPage);
+		$data['noPage'] = $noPage;
+
+		$this->load->view('notes/paging_notes', $data);
+	}
+
+	public function add_notes(){
+		if ($this->session->userdata('level')>1) {
+			$data['headertitle'] = 'Add Notes';
+			$data['main_menu'] = 'add_notes';
+			$data['menu'] = 'notes';
+			$data['profile_class'] = $this->profile;
+			
+			$this->load->view('notes/v_inputnotes',$data);
+		}else{
+			$data['headertitle'] = "Forbidden Page";
+
+			$this->load->view('error403',$data);
+		}
+	}
+
+	public function insert_note(){
+		$note = $this->input->post('note');
+		$plain_note = $this->input->post('plain_note');
+		$status = $this->input->post('status');
+
+		$id_notes = random_string('numeric',6);
+		$id_user = $this->session->userdata('id_user');
+
+		$input['id_note'] = $id_notes;
+		$input['id_user'] = $id_user;
+		$input['note'] = $note;
+		$input['plain_note'] = $plain_note;
+		$input['status'] = $status;
+
+		$this->note->input_note($input);
+	}
+
+	public function delete_note(){
+		$id_note = $this->input->post('id_note');
+
+		$where['id_note'] = $id_note;
+
+		$this->note->delete_note($where);
+	}
+
+	public function pinned_note(){
+		$id_note = $this->input->post('id_note');
+		
+		$update['status'] = 2;
+
+		$this->note->pinned_note($id_note,$update);		
+	}
+
+	public function unpinned_note(){
+		$id_note = $this->input->post('id_note');
+		
+		$update['status'] = 1;
+
+		$this->note->pinned_note($id_note,$update);		
 	}
 }

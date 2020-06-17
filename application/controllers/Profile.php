@@ -48,6 +48,7 @@ class Profile extends CI_Controller {
 
 			$data['user'] = $check->row();
 			$data['account'] = $this->admin->account($id_user)->result();
+	        $data['tweet_count'] = $this->tweets->tweet_count($id_user)->num_rows();
 
 			$this->load->view('profile/v_myprofile',$data);
 		}

@@ -24,7 +24,7 @@ function tweet() {
 	</div>`;
 
 	if (summernote.summernote('isEmpty')){
-		$('#attention-tweet-tweet').html(alert_danger);
+		$('#attention-tweet').html(alert_danger);
 		return false;
 	}
 

@@ -76,7 +76,7 @@ class Tweet extends CI_Controller {
 
 		if (!empty($search)) {
 			$like['tbl_user.name'] = $search;
-			$like2['tbl_tweet.tweet'] = $search;
+			$like2['tbl_tweet.plain_tweet'] = $search;
 		}
 		else {
 			$like = NULL;
@@ -105,7 +105,7 @@ class Tweet extends CI_Controller {
 
 		if (!empty($search)) {
 			$like['tbl_user.name'] = $search;
-			$like2['tbl_tweet.tweet'] = $search;
+			$like2['tbl_tweet.plain_tweet'] = $search;
 		}
 		else {
 			$like = NULL;

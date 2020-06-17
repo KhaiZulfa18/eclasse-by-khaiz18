@@ -18,8 +18,19 @@
       <!-- Main Content -->
       <div class="main-content">
         <section class="section">
-          <div class="section-header">
-            <h1>Members</h1>
+          <div class="card card-primary">
+            <div class="row">
+              <div class="card-header col-12">
+                <div class="col-lg-6 col-md-12">
+                  <h4 class="mr-2">Members</h4>
+                </div>
+                <div class="col-lg-6 col-md-12 ">
+                  <div id="card-header-form ">
+                    <input type="text" name="search" id="search" class="form-control col-lg-6 col-md-12 float-right" placeholder="Search">
+                  </div> 
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="section-body">

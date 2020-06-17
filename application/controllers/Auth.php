@@ -69,6 +69,8 @@ class Auth extends CI_Controller {
  
 			$this->session->set_userdata($data_session);
 
+			// $this->authentication->login_at($checkrows->id);
+
 			redirect('home/index');
 		}
 		else{

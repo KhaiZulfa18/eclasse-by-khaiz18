@@ -14,6 +14,11 @@ class Tweets extends CI_Model{
 		$this->db->delete('tbl_tweet');
 	}
 
+	function tweet_count($id_user){
+		$this->db->where('id_user',$id_user);
+		return $this->db->get('tbl_tweet');
+	}
+	
 	//Get Data Cond
 	function get_data_cond($where,$like,$orderby,$ordertype,$offset,$jml,$table){
 		if (!empty($where)) {

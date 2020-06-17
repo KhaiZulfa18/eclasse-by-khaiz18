@@ -26,6 +26,8 @@ class Home extends CI_Controller {
 		}
 		else {
 			$this->load->model('admin');
+			$this->load->model('tweets');
+			$this->load->model('note');
 			$this->load->helper('text');             
 			$this->load->helper('string');
 			$this->load->helper('user_helper');       
@@ -41,7 +43,12 @@ class Home extends CI_Controller {
 		$data['menu'] = "";
 		$data['profile_class'] = $this->profile;
 
-		$this->load->view('template', $data);
+		$id_user = $this->session->userdata('id_user');
+	    $data['tweet_count'] = $this->tweets->tweet_count($id_user)->num_rows();
+	    $data['member_count'] = $this->admin->member_count();
+	  	$data['pinned_notes'] = $this->note->get_pinned_notes()->result();
+	  	  
+		$this->load->view('home/v_home', $data);
 	}
 
 	public function add_member(){

@@ -124,6 +124,7 @@ class Classes extends CI_Controller {
 			$data['menu'] = '';
 			$data['user'] = $user;
 	        $data['account'] = $this->admin->account($id_user)->result();
+	        $data['tweet_count'] = $this->tweets->tweet_count($id_user)->num_rows();
 			$data['profile_class'] = $this->profile;
 	        
  
