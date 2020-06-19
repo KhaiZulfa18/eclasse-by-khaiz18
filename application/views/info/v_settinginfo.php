@@ -100,7 +100,7 @@
                         </div>
                         <div class="card-body" id="form-update-photo">
                           <div class="col-lg-12 text-center">
-                            <?php $logo = (!empty($class->logo)) ? $class->logo : 'logokz.png'; ?>
+                            <?php $logo = (!empty($class->logo)) ? $class->logo : 'eclasse-logo.jpg'; ?>
                             <img src="<?= base_url('images/class_logo/'.$logo); ?>" class="rounded-circle profile-img-lg">
                           </div>
                           <div class="form-group mt-3">

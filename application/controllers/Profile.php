@@ -48,7 +48,7 @@ class Profile extends CI_Controller {
 
 			$data['user'] = $check->row();
 			$data['account'] = $this->admin->account($id_user)->result();
-	        $data['tweet_count'] = $this->tweets->tweet_count($id_user)->num_rows();
+			$data['tweet_count'] = $this->tweets->tweet_count($id_user)->num_rows();
 
 			$this->load->view('profile/v_myprofile',$data);
 		}
@@ -124,7 +124,7 @@ class Profile extends CI_Controller {
 			</div> 
 			</div>';
 		}else{
-			if ($currentpassword!=$password) {
+			if (!password_verify($currentpassword, $password)) {
 				$response['status'] = 'gagal';
 				$response['pesan'] = '<div class="alert alert-warning alert-dismissible text-left show fade">
 				<div class="alert-body">
@@ -133,31 +133,33 @@ class Profile extends CI_Controller {
 				</button>
 				Password Anda Salah!
 				</div> 
-				</div>';
-			}elseif ($newpassword==$password) {
-				$response['status'] = 'gagal';
-				$response['pesan'] = '<div class="alert alert-warning alert-dismissible text-left show fade">
-				<div class="alert-body">
-				<button class="close" data-dismiss="alert">
-				<span>&times;</span>
-				</button>
-				Password Tidakk Boleh Sama Dengan Password Sebelumnya!
-				</div> 
-				</div>';
+				</div>';	
 			}else{
-				$where['id_user'] = $id_user;
-				$update['password'] = $newpassword;
-				$this->admin->update_password($where,$update);
+				if ($currentpassword==$newpassword) {
+					$response['status'] = 'gagal';
+					$response['pesan'] = '<div class="alert alert-warning alert-dismissible text-left show fade">
+					<div class="alert-body">
+					<button class="close" data-dismiss="alert">
+					<span>&times;</span>
+					</button>
+					Password Tidakk Boleh Sama Dengan Password Sebelumnya!
+					</div> 
+					</div>';
+				}else{
+					$where['id_user'] = $id_user;
+					$update['password'] = password_hash($newpassword, PASSWORD_DEFAULT);
+					$this->admin->update_password($where,$update);
 
-				$response['status'] = 'berhasil';
-				$response['pesan'] = '<div class="alert alert-success alert-dismissible text-left show fade">
-				<div class="alert-body">
-				<button class="close" data-dismiss="alert">
-				<span>&times;</span>
-				</button>
-				Yey, Berhasil Memperbarui Password!
-				</div> 
-				</div>';
+					$response['status'] = 'berhasil';
+					$response['pesan'] = '<div class="alert alert-success alert-dismissible text-left show fade">
+					<div class="alert-body">
+					<button class="close" data-dismiss="alert">
+					<span>&times;</span>
+					</button>
+					Yey, Berhasil Memperbarui Password!
+					</div> 
+					</div>';
+				}
 			}
 		}
 		echo json_encode($response);
@@ -220,13 +222,13 @@ class Profile extends CI_Controller {
 			}
 		}else{
 			$response['pesan'] = '<div class="alert alert-danger alert-dismissible text-left show fade">
-				<div class="alert-body">
-				<button class="close" data-dismiss="alert">
-				<span>&times;</span>
-				</button>
-				Oops, photo kosong!
-				</div>
-				</div>';
+			<div class="alert-body">
+			<button class="close" data-dismiss="alert">
+			<span>&times;</span>
+			</button>
+			Oops, photo kosong!
+			</div>
+			</div>';
 			// $response['pesan'] = 'tes'.$pic;
 			$response['status'] = "gagal";
 		}

@@ -11,7 +11,7 @@
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-title">Welcome Bro</div>
         <a href="<?= base_url('profile'); ?>" class="dropdown-item has-icon">
-          <i class="far fa-user"></i> Profile
+          <i class="fas fa-user"></i> Profile
         </a>
         <a href="<?= base_url('tweet'); ?>" class="dropdown-item has-icon">
           <i class="fas fa-comment-dots"></i> Tweet

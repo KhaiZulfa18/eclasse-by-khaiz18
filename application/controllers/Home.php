@@ -81,6 +81,8 @@ class Home extends CI_Controller {
 		$rndm = random_string('numeric',7);
 		$id_user = "RPL3-".$rndm;
 
+		$password_hash = password_hash($password, PASSWORD_DEFAULT);
+
 		//Check Email
 		$test_email = $this->admin->check_email($email)->num_rows();
 
@@ -139,7 +141,7 @@ class Home extends CI_Controller {
 
 			$input['id_user'] = $id_user;
 			$input['username'] = $username;
-			$input['password'] = $password;
+			$input['password'] = $password_hash;
 			$input['name'] = $name;
 			$input['email'] = $email;
 			$input['phone'] = $phone;

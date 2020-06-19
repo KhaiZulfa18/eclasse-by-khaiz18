@@ -45,6 +45,7 @@
                   </div>
                   <div class="card-footer text-right">
                     <div id="attention-note"></div>
+                    <a href="<?= base_url('info/notes') ?>" class="btn btn-secondary mr-1" type="button" ><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
                     <button class="btn btn-primary mr-1" type="button" id="btnCreate"><i class="fa fa-save"></i>&nbsp;Create</button>
                   </div>
                 </div>

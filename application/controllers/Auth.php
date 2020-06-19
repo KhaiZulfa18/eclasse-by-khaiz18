@@ -24,11 +24,11 @@ class Auth extends CI_Controller {
 		
 		$this->load->model('authentication');
 		$this->load->model('admin');
-        $this->load->helper('cookie');		          
-        $this->load->helper('string');		          
-        $this->load->helper('text');	
-        $this->load->helper('user_helper');	
-        $this->profile = $this->admin->get_profile_class();          
+		$this->load->helper('cookie');		          
+		$this->load->helper('string');		          
+		$this->load->helper('text');	
+		$this->load->helper('user_helper');	
+		$this->profile = $this->admin->get_profile_class();          
 	}
 
 	public function index(){
@@ -42,36 +42,38 @@ class Auth extends CI_Controller {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 
-		$check = $this->authentication->login($username,$password);
+		$check = $this->authentication->check_user($username)->row();
 
-		if($check->num_rows() == 1){
-					
-                $cookie = array(
-                        'name'   => 'cookie_login',
-                        'value'  => $username,                            
+		$password_user = $check->password;
+
+		if (password_verify($password, $password_user)) {			
+			// if($check->num_rows() == 1){
+
+				$cookie = array(
+					'name'   => 'cookie_login',
+					'value'  => $username,                            
                         //'expire' => 3600, //30D
                         'expire' => 1209600 //2 week
                         //'secure' => TRUE
-                );
-        	    set_cookie($cookie);
+                    );
+				set_cookie($cookie);
 
-        	    $checkrows = $check->row();
+				$checkrows = $check;
 
-			$data_session = array(
-				'id' => $checkrows->id,
-				'id_user' => $checkrows->id_user,
-				'name' => $checkrows->name,
-				'gender' => $checkrows->gender, 
-				'profil_pic' => $checkrows->profil_picture, 
-				'level' => $checkrows->level, 
-				'status' => "login"
-			);
- 
-			$this->session->set_userdata($data_session);
+				$data_session = array(
+					'id' => $checkrows->id,
+					'id_user' => $checkrows->id_user,
+					'name' => $checkrows->name,
+					'gender' => $checkrows->gender, 
+					'profil_pic' => $checkrows->profil_picture, 
+					'level' => $checkrows->level, 
+					'status' => "login"
+				);
 
-			// $this->authentication->login_at($checkrows->id);
+				$this->session->set_userdata($data_session);
 
-			redirect('home/index');
+				redirect('home/index');
+			// }
 		}
 		else{
 			$this->session->set_flashdata('error','Username atau Password Salah!');
@@ -109,6 +111,8 @@ class Auth extends CI_Controller {
 
 		$rndm = random_string('numeric',7);
 		$id_user = "RPL3-".$rndm;
+
+		$password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 		//Check Email
 		$test_email = $this->admin->check_email($email)->num_rows();
@@ -168,7 +172,7 @@ class Auth extends CI_Controller {
 
 			$input['id_user'] = $id_user;
 			$input['username'] = $username;
-			$input['password'] = $password;
+			$input['password'] = $password_hash;
 			$input['name'] = $name;
 			$input['email'] = $email;
 			$input['phone'] = $phone;

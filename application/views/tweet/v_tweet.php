@@ -63,11 +63,14 @@
   <script>
     $('.summernote-simple').summernote({
       placeholder: "What's happening?",
-      // height: 100,
+      height: 200,
+      minHeight: null,
+      maxHeight: null,
+      focus: true,
       toolbar: [
-      ['style', ['style']],
       ['font', ['bold', 'underline', 'clear']],
       ['color', ['color']],
+      ['insert', ['link']],
       ['view', ['fullscreen', 'codeview']]
       ]
     });

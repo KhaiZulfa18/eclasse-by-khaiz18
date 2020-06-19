@@ -41,6 +41,11 @@
               </div>
             </div>
           </div>
+          <a href="<?= base_url('info/add_notes'); ?>">
+            <button class="btn btn-primary floating-button">
+              <i class="fa fa-plus fa-3x"></i>
+            </button>
+          </a>
         </section>
       </div>
 

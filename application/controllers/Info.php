@@ -253,7 +253,7 @@ class Info extends CI_Controller {
 	public function add_notes(){
 		if ($this->session->userdata('level')>1) {
 			$data['headertitle'] = 'Add Notes';
-			$data['main_menu'] = 'add_notes';
+			$data['main_menu'] = 'info';
 			$data['menu'] = 'notes';
 			$data['profile_class'] = $this->profile;
 			

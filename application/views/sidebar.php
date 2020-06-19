@@ -37,7 +37,7 @@
         </ul>
       </li>
       <?php if ($this->session->userdata('level')>1) { ?>
-      <li class="<?php if($main_menu=="add_notes"){ echo "active"; } ?>"><a class="nav-link" href="<?php echo base_url('info/add_notes'); ?>"><i class="fas fa-sticky-note"></i><span>Create Note</span></a></li>
+      <!-- <li class="<?php if($main_menu=="add_notes"){ echo "active"; } ?>"><a class="nav-link" href="<?php echo base_url('info/add_notes'); ?>"><i class="fas fa-sticky-note"></i><span>Create Note</span></a></li> -->
       <li class="nav-item dropdown <?php if($main_menu=="settings"){ echo "active"; } ?>">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cogs"></i> <span>Info Settings</span></a>
         <ul class="dropdown-menu">
