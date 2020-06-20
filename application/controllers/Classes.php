@@ -69,6 +69,8 @@ class Classes extends CI_Controller {
 		$data['noPage'] = $noPage;
 		$data['offset'] = $offset;
 
+		$data['search'] = $search;
+
 		$this->load->view('class/members/members', $data);
 	}
 
@@ -86,14 +88,6 @@ class Classes extends CI_Controller {
 			$noPage = $page;
 		}
 
-		// if (empty($gender&&$status)) {
-		// 	$where['status'] = 1;
-		// }else{
-		// 	$where = array(
-		// 		'status' => $status,
-		// 		'gender' => $gender
-		// 	);
-		// }
 		$where['status'] = 1;
 
 		if (!empty($search)) {

@@ -134,7 +134,7 @@ class Auth extends CI_Controller {
 
 				$config['upload_path']   = './images/profil_picture/';
 				$config['allowed_types'] = 'jpg|jpeg|png';
-				$config['max_size'] = 1500;
+				$config['max_size'] = 4000;
 				$newname = pathinfo($_FILES['picture']['name'], PATHINFO_FILENAME);
 				$newname = str_replace(',', '_', $newname);
 				$newname = str_replace('.', '_', $newname);

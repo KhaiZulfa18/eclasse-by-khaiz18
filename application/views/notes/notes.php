@@ -1,4 +1,5 @@
 <ul class="list-unstyled list-unstyled-border">
+  <?php if (!empty($list_notes)) { ?>
   <?php foreach ($list_notes as $data){ 
     $status = ($data->status==2) ? '<i class="fas fa-star"></i>' : '';
     ?>
@@ -32,5 +33,10 @@
         </div>
       </div>
     </li>
+  <?php }
+  }else{ ?>
+    <div class="text-center">
+      <h3 class="text-primary">Ooops, No Result for "<?= $search; ?>"</h3>
+    </div>
   <?php } ?>
 </ul>

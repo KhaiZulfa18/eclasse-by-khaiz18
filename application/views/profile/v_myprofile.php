@@ -33,41 +33,56 @@
                         <div class="profile-widget-item-label">Tweets</div>
                         <div class="profile-widget-item-value"><?= $tweet_count; ?></div>
                       </div>
-                      <div class="profile-widget-item">
-                        <div class="profile-widget-item-label">Followers</div>
-                        <div class="profile-widget-item-value">6,8K</div>
-                      </div>
-                      <div class="profile-widget-item">
-                        <div class="profile-widget-item-label"></div>
-                        <div class="profile-widget-item-value">2,1K</div>
-                      </div>
                     </div>
                   </div>
                   <div class="profile-widget-description">
                     <div class="profile-widget-name"><h3><?= $user->name; ?></h3></div>
                     <?= $user->bio; ?>
-                    <div class="row col-lg-12">
-                      <div class="col-lg-4 col-md-6 mt-sm-4">
-                        <h6><i class="fa fa-envelope mr-3"></i><?= $user->email; ?></h6>
+                    <div class="row mt-4">
+                      <div class="col-lg-3 col-md-3 mt-sm-4 mt-2">
+                        <a href="mailto:<?= $user->email; ?>" class="btn btn-block btn-social btn-primary">
+                          <span class="fa fa-envelope"></span>
+                          <?= $user->email; ?>
+                        </a>
                       </div>
-                      <div class="col-lg-4 col-md-6 mt-sm-4">
-                        <h6><i class="fa fa-phone mr-3"></i><?= $user->phone; ?></h6>
+                      <div class="col-lg-3 col-md-3 mt-sm-4 mt-2">
+                        <a href="<?= chatWa($user->phone,$user->name); ?>" class="btn btn-block btn-social btn-success">
+                          <span class="fab fa-whatsapp"></span>
+                          <?= $user->phone; ?>
+                        </a>
                       </div>
-                      <div class="col-lg-4 col-md-6 mt-sm-4">
-                        <h6><i class="fa fa-envelope mr-3"></i><?= $user->loc_of_birth.', '.date_indo($user->date_of_birth); ?></h6>
+                      <div class="col-lg-3 col-md-3 mt-sm-4 mt-2">
+                        <button class="btn btn-block btn-social btn-info">
+                          <span class="fa fa-book"></span>
+                          <?= $user->loc_of_birth.', '.date_indo($user->date_of_birth); ?>
+                        </a>
+                      </div>
+                      <div class="col-lg-3 col-md-3 mt-sm-4 mt-2">
+                        <button class="btn btn-block btn-social btn-warning">
+                          <span class="fa fa-map"></span>
+                          <?= $user->address; ?>
+                        </a>
                       </div>
                     </div>
                   </div>
                   <div class="card-footer text-center">
                     <div class="font-weight-bold mb-2">Follow Me On</div>
-                    <?php foreach ($account as $data) {  ?>
-                      <a href="<?php $link = (!empty($data->link)) ? $data->link : '#'; echo $link; ?>" class="btn btn-social-icon btn-<?= $data->type; ?> mr-1">
-                        <i class="fab fa-<?= $data->type; ?>"></i>
-                      </a>
-                    <?php } ?>
-                    <button class="btn btn-social-icon btn-primary mr-1" onClick="addAccount('<?php echo $user->id_user; ?>')">
-                      <i class="fa fa-plus"></i>
-                    </button>
+                    <div class="row">
+                      <?php foreach ($account as $data) {  ?>
+                        <div class="col-lg-3 col-md-3 col-sm-4 mt-4">
+                          <a href="<?php $link = (!empty($data->link)) ? $data->link : '#'; echo $link; ?>" target="_blank" class="btn btn-block btn-social btn-<?= $data->type; ?> mr-1">
+                            <span class="fab fa-<?= $data->type; ?>"></span>
+                            <?= $data->name; ?>
+                          </a>
+                        </div>
+                      <?php } ?>
+                      <div class="col-lg-3 col-md-3 col-sm-4 mt-4">
+                        <button class="btn btn-block btn-social btn-primary mr-1" onClick="addAccount('<?php echo $user->id_user; ?>')">
+                          <i class="fa fa-plus"></i>
+                          Add Account
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -85,9 +100,9 @@
 
       <!-- Footer -->
       <?php 
-        $this->load->view('footer'); 
-        $this->load->view('modal'); 
-        $this->load->view('tweet/modal_tweet'); 
+      $this->load->view('footer'); 
+      $this->load->view('modal'); 
+      $this->load->view('tweet/modal_tweet'); 
       ?>
     </div>
   </div>

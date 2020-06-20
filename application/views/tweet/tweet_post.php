@@ -42,8 +42,7 @@
     <div class="activities">
       <div class="activity">
         <div class="text-primary">
-          <h3>Did not match any Tweets</h3>
-          <h6>Please search by 'Tweet' or 'User'</h6>
+          <h3>Tweet Not Found</h3>
         </div>
       </div>
     </div>

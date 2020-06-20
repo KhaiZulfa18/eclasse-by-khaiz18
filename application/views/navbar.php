@@ -9,7 +9,7 @@
       <img alt="image" src="<?= base_url('images/profil_picture/'.$this->session->userdata('profil_pic')); ?>" class="rounded-circle mr-1 profile-pic">
       <div class="d-sm-none d-lg-inline-block">Hi, <?= $this->session->userdata('name'); ?></div></a>
       <div class="dropdown-menu dropdown-menu-right">
-        <div class="dropdown-title">Welcome Bro</div>
+        <div class="dropdown-title"><?= $this->session->userdata('name'); ?></div>
         <a href="<?= base_url('profile'); ?>" class="dropdown-item has-icon">
           <i class="fas fa-user"></i> Profile
         </a>

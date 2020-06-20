@@ -76,18 +76,22 @@
                   <h4>Pinned Notes  <i class="fas fa-star"></i></h4>
                 </div>
                 <div class="card-body">
+                  <?php if (!empty($pinned_notes)){ ?>
                   <ul class="list-unstyled list-unstyled-border">
-                  <?php foreach ($pinned_notes as $data){ ?>
-                    <li class="media">
-                      <img class="mr-3 rounded-circle" width="50" src="<?= base_url('images/profil_picture/'.$data->profil_pic) ?>" alt="avatar">
-                      <div class="media-body">
-                        <div class="float-right text-primary"><?= date_ago($data->created_at); ?></div>
-                        <div class="media-title"><?= $data->name ?></div>
-                        <span><?= $data->note;  ?></span>
-                      </div>
-                    </li>
-                  <?php } ?>
+                      <?php foreach ($pinned_notes as $data){ ?>
+                        <li class="media">
+                          <img class="mr-3 rounded-circle" width="50" src="<?= base_url('images/profil_picture/'.$data->profil_pic) ?>" alt="avatar">
+                          <div class="media-body">
+                            <div class="float-right text-primary"><?= date_ago($data->created_at); ?></div>
+                            <div class="media-title"><?= $data->name ?></div>
+                            <span><?= $data->note;  ?></span>
+                          </div>
+                        </li>
+                      <?php } ?>
                   </ul>
+                  <?php }else{ ?>
+                    <h5 class="text-primary">No Pinned Note</h5>
+                  <?php } ?>
                   <div class="text-center pt-1 pb-1">
                     <a href="<?= base_url('info/notes'); ?>" class="btn btn-primary btn-lg btn-round">
                       View All Notes
@@ -105,7 +109,7 @@
     </div>
   </div>
 
-<!-- JS Script -->
-<?php $this->load->view('js-script'); ?>
+  <!-- JS Script -->
+  <?php $this->load->view('js-script'); ?>
 </body>
 </html>

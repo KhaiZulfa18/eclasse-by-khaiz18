@@ -133,3 +133,25 @@ if ( !function_exists('footer') ) {
 	}
 
 }
+
+if ( !function_exists('chatWa')) {
+	
+	function chatWa($phone,$name){
+		
+		$first_number = substr($phone, 0,1);
+        $number = substr($phone, 1);
+
+        if (!$first_number=='62') {
+            $number_phone = '62'.$number;
+        }else{
+            $number_phone = $phone;
+        } 
+
+       	$text = "Halo ".$name.", Bagaimana Kabarmu?";
+        $txt = str_replace(" ", "%20", $text);
+
+        $chat = "https://api.whatsapp.com/send?phone=".$number_phone."&text=".$txt;
+
+        return $chat; 
+	}
+}

@@ -218,6 +218,8 @@ class Info extends CI_Controller {
 		$data['noPage'] = $noPage;
 		$data['offset'] = $offset;
 
+		$data['search'] = $search;
+
 		$this->load->view('notes/notes', $data);
 	}
 
